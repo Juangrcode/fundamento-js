@@ -17,31 +17,49 @@ var andres = {
 
 const FULL_AGE = 18;
 
+//const isOldOfAge = function (person){
+//return person.age >= FULL_AGE;
+//}
+const isOldOfAge = ({
+    age
+}) => age >= FULL_AGE
 
-function isOldOfAge(person)
-{
-    return person.age >= FULL_AGE;
-}
-function printIfIsOlderOfAge(person)
-{
-    if (isOldOfAge(person))
-    {
-        console.log(`${person.name.toUpperCase()}` + ` ${person.lastname.toUpperCase()} is ` + ' older of age' )
-    }
-    else{
+function printIfIsOlderOfAge(person) {
+    if (isOldOfAge(person)) {
+        console.log(`${person.name.toUpperCase()}` + ` ${person.lastname.toUpperCase()} is ` + ' older of age')
+    } else {
         console.log(`${person.name.toUpperCase()}` + ` ${person.lastname.toUpperCase()} is ` + ' less of age')
     }
 }
 printIfIsOlderOfAge(Juan)
 printIfIsOlderOfAge(andres)
 
-function printProfetional(person)
-{
+const isLessOfAge = ({
+    age
+}) => age < FULL_AGE
+
+function permitAccessLess(person) {
+    if (!isLessOfAge(person)) {
+        console.log('Access Denied')
+    } else {
+        console.log('Access Granted')
+    }
+}
+
+function permitAccess(person) {
+    if (!isOldOfAge(person)) {
+        console.log('Access Denied')
+    } else {
+        console.log('Access Granted')
+    }
+}
+
+function printProfetional(person) {
     console.log(`${person.name} es:`);
 
     if (person.engineer) {
         console.log('engineer');
-    } else{
+    } else {
         console.log('dont is engineer')
     }
     if (person.cook) {
@@ -67,4 +85,3 @@ function printProfetional(person)
 
 
 printProfetional(Juan);
-

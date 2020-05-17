@@ -5,24 +5,31 @@ class person{
     this.age = age
     this.height = height
   }
+  greet(){
+    console.log(`Hello, I call ${this.name} ${this.lastname} and have ${this.age} years`)
+  }
+  IAmTall(){
+    return this.height >= 1.8
+  }
 }
 
-function IAmTall({height}){
-  
-  return height >= 1.8
+class developer extends person{
+  constructor(name, lastname, age, height){
+    super(name, lastname, age, height)
+  }
+  greet(){
+    console.log(`Hello, I call ${this.name} ${this.lastname} and i am a developer`)
+  }
 }
 
-person.prototype.greet = function (){
-  console.log(`Hello, I call ${this.name} ${this.lastname} and have ${this.age}`)
+developer.prototype.greet = function() {
+  console.log(`Hello, I call ${this.name} ${this.lastname} and i am a developer`)
 }
 
-var juan = new person('Juan', 'Gonzalez', 17, 1.8)
-var andres = new person('Andrecito', 'Lopez', 20, 1.84)
-var vale = new person('Valentina', 'Gonzalez', 20, 1.6)
 
 
-var box = [juan, andres, vale]
 
+//var juan = new person('Juan', 'Gonzalez', 17, 1.8)
+//var andres = new person('Andrecito', 'Lopez', 20, 1.84)
+//var vale = new person('Valentina', 'Gonzalez', 20, 1.6)
 
-var personsHigh = box.filter(IAmTall)
-console.log(personsHigh)
